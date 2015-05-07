@@ -1,12 +1,17 @@
-// API Docs at: 
+// API Docs at:
 // https://developer.spotify.com/technologies/web-api/search/
 
+$(document).ready(function(){
 
-function searchByArtist(keyword) {
-  var url = 'http://ws.spotify.com/search/1/artist.json?q='+keyword;
-}
-
-
-function searchByTrack(keyword) {
-  var url = 'http://ws.spotify.com/search/1/track.json?q='+keyword;
-}
+  $("#search").on("submit", function ( event ){
+    event.preventDefault()
+    var searchType = $("#search-type").val()
+    var searchValue = $("#search-keyword").val()
+    if (searchType === "artist"){
+      artistView = new ArtistView ( searchValue )
+    }
+    else{
+      trackView = new TrackView ( searchValue )
+    }
+  })
+})
