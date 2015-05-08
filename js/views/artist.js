@@ -10,8 +10,6 @@ ArtistView.prototype = {
       var href = this.artistModel.artistList[i].href
       var name = this.artistModel.artistList[i].name
       results.append("<li><a href='" + href + "'>" + name + "</a></li>")
-      // console.log(this.artistModel.artistList[i].name)
-      // console.log(this.artistModel.artistList[i].href)
     }
   }
 }

@@ -1,6 +1,5 @@
 //Constructor function
 var Track = function( trackFromUser ){
-  console.log("trackFromUser", trackFromUser)
   this.searchByTrack( trackFromUser )
   this.trackList = []
 }
@@ -14,16 +13,14 @@ Track.prototype = {
     dataType: 'json',
     context: this
       }).done(function(response){
-        console.log("url", url)
-        // console.log("response:", response)
-        // for (var i = 0; i < response.artists.length; i++){
-        //   var artistInfo = {
-        //     name:response.artists[i].name,
-        //     href:response.artists[i].href
-        //   }
-        //   this.artistList.push(artistInfo)
-        // }
-        // artistView.render()
+        for (var i = 0; i < response.tracks.length; i++){
+          var trackInfo = {
+            name:response.tracks[i].name,
+            href:response.tracks[i].href
+          }
+          this.trackList.push(trackInfo)
+        }
+        trackView.render()
       }).fail(function(){
         console.log("AJAX request was not successful")
       }).always(function(){
