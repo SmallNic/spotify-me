@@ -6,6 +6,8 @@ ArtistView.prototype = {
   render: function (){
     var results = $("#results")
     results.empty()
+    results.append("Showing " + this.artistModel.limit + " of ", this.artistModel.numResults + " results.")
+
     for(var i = 0; i < this.artistModel.artistList.length; i ++){
       var href = this.artistModel.artistList[i].href
       var name = this.artistModel.artistList[i].name

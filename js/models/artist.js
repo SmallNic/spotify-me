@@ -13,6 +13,9 @@ Artist.prototype = {
     dataType: 'json',
     context: this
       }).done(function(response){
+        this.limit = response.info.limit
+        this.numResults = response.info.num_results
+
         for (var i = 0; i < response.artists.length; i++){
           var artistInfo = {
             name:response.artists[i].name,

@@ -6,6 +6,7 @@ TrackView.prototype = {
   render: function (){
     var results = $("#results")
     results.empty()
+    results.append("Showing " + this.trackModel.limit + " of ", this.trackModel.numResults + " results.")
     for(var i = 0; i < this.trackModel.trackList.length; i ++){
       var href = this.trackModel.trackList[i].href
       var name = this.trackModel.trackList[i].name
